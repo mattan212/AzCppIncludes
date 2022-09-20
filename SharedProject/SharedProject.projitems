@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>9a5bf329-d41b-40ea-89b6-c5a94c8fc3f8</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedProject</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Conditions\Condition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Conditions\IncludeLineCondition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuggestedActionsSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuggestedActions\AlphabetizeIncludesAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuggestedActions\BaseSuggestedAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Xaml\NotificationDialog.xaml.cs">
+      <DependentUpon>NotificationDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Xaml\NotificationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
